@@ -1,5 +1,5 @@
 import me from "./img/eu-crop.jpeg";
-import sine from "./img/sine.svg";
+import sine2 from "./img/sine2.svg";
 
 function printPage() {
   document.body.appendChild(printHeader());
@@ -51,6 +51,18 @@ function printHeader() {
 function printMain() {
   const container = document.createElement("main");
 
+  const waveContainer = document.createElement("div");
+  waveContainer.classList.add("wave-container");
+  const sineWave = new Image();
+  sineWave.src = sine2;
+  sineWave.classList.add("wave");
+  waveContainer.appendChild(sineWave);
+  document.body.appendChild(waveContainer);
+
+  // const sineWaveContainer = document.createElement("div");
+  // sineWaveContainer.id = "sine-wave-container";
+  // sineWaveContainer.appendChild(printSineWave());
+
   const aboutContainer = document.createElement("div");
   aboutContainer.classList.add("about-container");
 
@@ -63,11 +75,7 @@ function printMain() {
   const firstName = document.createElement("div");
   firstName.classList.add("first-name");
   firstName.textContent = "FELIPE";
-  // const sineWave = new Image();
-  // sineWave.src = sine;
-  // sineWave.classList.add("wave");
-  // firstName.appendChild(sineWave);
-  // const lastName = document.createElement("h1");
+
   const lastName = document.createElement("div");
   lastName.textContent = "FIGUEIREDO";
   lastName.classList.add("last-name");
@@ -93,7 +101,7 @@ function printMain() {
   aboutMeTitle.textContent = "About me";
   const aboutMeText = document.createElement("p");
   aboutMeText.textContent =
-    "I am a 34 year old brazilian developer, blablablablablabla blabalblablablablablaba lablablablablabl abalablablabalbala blablablabla";
+    "I am a 34 year old brazilian developer, blabl ablabla blabla blabalblabl ablabl ablaba lalablabla blabalbla blablab lablabla blabalblabl ablab lablaba lalablaba lablablabl ablabl abalablabla balbala blab lablab lablabla blabalbl ablablabl ablaba lala";
   aboutMeContainer.appendChild(aboutMeTitle);
   aboutMeContainer.appendChild(aboutMeText);
 
