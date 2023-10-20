@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 10px;
+  padding: 0;
+  text-align: center;
+  position: relative;
+
+  /* background-image: url("./img/sine.svg");
+  background-size: 120% auto;
+  background-position-x: center;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+
+  background: url("./img/sine.svg") no-repeat center -142px fixed;
+  background-size: cover; /* Adjust as needed */
+  background-origin: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.title-container {
+  /* max-width: 420px; */
+  width: min(100%, 531px);
+  /* position: relative; */
+  /* margin: auto; */
+}
+
+.first-name {
+  text-align: left;
+
+  /* margin-left: 16%; */
+  /* margin-left: 24%; */
+  /* margin-left: clamp(20px, 9%, 200px); */
+  /* font-size: clamp(36px, 13vw, 10rem); */
+}
+
+.last-name {
+  text-align: center;
+}
+
+.first-name,
+.last-name {
+  font-size: clamp(51px, 8vw, 5rem);
+  font-weight: 600;
+}
+
+.description {
+  text-align: right;
+  /* margin-right: 16%; */
+  /* margin-right: clamp(20px, 9%, 200px); */
+  /* margin-right: 24%; */
+  font-size: clamp(12px, 7vw, 6rem);
+  font-size: clamp(26px, 3vw, 2.6rem);
+  font-weight: 200;
+}
+
+/* .first-name::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid #cf213e;
+  position: absolute;
+  bottom: -10px;
+  z-index: -1;
+} */
+
+.wave {
+  position: absolute;
+  z-index: -1;
+  /* color: #cf213e; */
+}
+
+.portrait {
+  max-width: min(69vw, 420px);
+  /* margin: auto; */
+
+  /* margin: 20px 16% 20px 16%; */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+  /* margin: 20px auto 20px auto; */
+}
+
+@media (min-width: 900px) {
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 33px;
+  }
+  .wrapper {
+    flex-direction: row-reverse;
+  }
+}
