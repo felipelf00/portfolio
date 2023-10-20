@@ -1,7 +1,17 @@
 import me from "./img/eu-crop.jpeg";
-import sine2 from "./img/sine2.svg";
+// import sine2 from "./img/sine2.svg";
 
 function printPage() {
+  const shadow = document.createElement("div");
+  shadow.classList.add("shadow");
+
+  shadow.addEventListener("click", () => {
+    shadow.classList.remove("active");
+    document.querySelector("nav").classList.remove("active");
+  });
+
+  document.body.appendChild(shadow);
+
   document.body.appendChild(printHeader());
   document.body.appendChild(printMain());
   document.body.appendChild(printFooter());
@@ -13,6 +23,7 @@ function printHeader() {
   const navigation = document.createElement("nav");
 
   const navList = document.createElement("ul");
+  navList.classList.add("nav-list");
   const gitHub = document.createElement("li");
   const gitHubLink = document.createElement("a");
   gitHubLink.textContent = "GitHub";
@@ -41,8 +52,28 @@ function printHeader() {
   navList.appendChild(resume);
   navList.appendChild(contact);
 
-  navigation.appendChild(navList);
+  const burger = document.createElement("span");
+  burger.classList.add("burger");
+  burger.classList.add("material-symbols-outlined");
+  burger.textContent = "menu";
 
+  const shadow = document.querySelector(".shadow");
+
+  burger.addEventListener("click", () => {
+    shadow.classList.add("active");
+    // navList.classList.add("active");
+    navigation.classList.add("active");
+  });
+
+  // shadow.addEventListener("click", () => {
+  //   shadow.classList.remove("active");
+  //   navList.classList.remove("active");
+  // });
+
+  navigation.appendChild(navList);
+  // navigation.appendChild(shadow);
+
+  container.appendChild(burger);
   container.appendChild(navigation);
 
   return container;
@@ -51,13 +82,13 @@ function printHeader() {
 function printMain() {
   const container = document.createElement("main");
 
-  const waveContainer = document.createElement("div");
-  waveContainer.classList.add("wave-container");
-  const sineWave = new Image();
-  sineWave.src = sine2;
-  sineWave.classList.add("wave");
-  waveContainer.appendChild(sineWave);
-  document.body.appendChild(waveContainer);
+  // const waveContainer = document.createElement("div");
+  // waveContainer.classList.add("wave-container");
+  // const sineWave = new Image();
+  // sineWave.src = sine2;
+  // sineWave.classList.add("wave");
+  // waveContainer.appendChild(sineWave);
+  // document.body.appendChild(waveContainer);
 
   // const sineWaveContainer = document.createElement("div");
   // sineWaveContainer.id = "sine-wave-container";

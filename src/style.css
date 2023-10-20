@@ -3,15 +3,24 @@
 :root {
   --background-color: rgb(250, 252, 249);
   --text-color: rgb(15, 15, 15);
+  --text-color: #1a1c1a;
+  --detail-color: #e2919f;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  margin: 10px;
+  /* margin: 10px; */
+  margin: 0;
   padding: 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  color: var(--text-color);
+  background-color: var(--background-color);
 
   /* background-image: url("./img/sine.svg");
   background-size: 120% auto;
@@ -25,6 +34,24 @@ body {
   background-origin: border-box; */
 }
 
+.shadow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1;
+}
+
+.shadow.active {
+  display: block;
+}
+
+header {
+  position: relative;
+  z-index: 3;
+}
+
 a {
   text-decoration: none;
   color: var(--text-color);
@@ -36,10 +63,58 @@ ul {
   padding: 0;
 }
 
+nav {
+  position: absolute;
+  z-index: 2;
+  top: -400%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background-color);
+  width: 100%;
+  padding: 10px;
+}
+
 nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  font-size: 1.1rem;
+
+  /* position: absolute;
+  z-index: 2;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%); */
+}
+
+nav.active {
+  top: 0;
+}
+/* nav ul.active {
+  top: 0;
+} */
+
+nav ul a {
+  background: linear-gradient(0deg, var(--detail-color), var(--detail-color))
+    no-repeat right bottom / 0 var(--bg-h);
+  transition: background-size 350ms;
+  --bg-h: 100%;
+  padding: 0 6px 0 6px;
+}
+
+nav ul a:where(:hover, :focus-visible) {
+  background-size: 100% var(--bg-h);
+  background-position-x: left;
+}
+
+.burger {
+  padding: 8px;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 8px;
 }
 
 h1,
@@ -49,11 +124,9 @@ h2 {
 }
 
 .title-container {
-  /* max-width: 420px; */
-  width: min(100%, 531px);
-  /* position: relative; */
-  /* margin: auto; */
+  width: min(100%, 530px);
 
+  /* background by SVGBackgrounds.com */
   background-color: #fdfffd;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='399' height='47.9' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23E2919F' stroke-width='4.3' stroke-opacity='0.49'%3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
   border-radius: 150px;
@@ -87,16 +160,6 @@ h2 {
   font-size: clamp(26px, 3vw, 2.6rem);
   font-weight: 200;
 }
-
-/* .first-name::after {
-  content: "";
-  display: block;
-  width: 100%;
-  border-bottom: 2px solid #cf213e;
-  position: absolute;
-  bottom: -10px;
-  z-index: -1;
-} */
 
 .wave {
   position: absolute;
@@ -132,22 +195,25 @@ h2 {
   align-items: center;
   gap: 30px;
   margin-top: 20px;
-  /* margin: 20px auto 20px auto; */
+}
 
-  /* background: url("./img/sine5.svg") no-repeat center -142px fixed; */
-  /* background: url("./img/sine5.svg") no-repeat center fixed;
-  background-position-y: -163px;
-  background-size: cover;
-  background-origin: border-box; */
+.about-me-container {
+  margin-top: 45px;
 }
 
 @media (min-width: 900px) {
   nav ul {
     flex-direction: row;
     justify-content: center;
-    gap: 33px;
+    gap: 53px;
   }
   .wrapper {
     flex-direction: row-reverse;
+  }
+  .burger {
+    display: none;
+  }
+  main {
+    padding-top: 69px;
   }
 }
