@@ -82,18 +82,16 @@ function printHeader() {
 function printMain() {
   const container = document.createElement("main");
 
-  // const waveContainer = document.createElement("div");
-  // waveContainer.classList.add("wave-container");
-  // const sineWave = new Image();
-  // sineWave.src = sine2;
-  // sineWave.classList.add("wave");
-  // waveContainer.appendChild(sineWave);
-  // document.body.appendChild(waveContainer);
+  container.appendChild(printAbout());
 
-  // const sineWaveContainer = document.createElement("div");
-  // sineWaveContainer.id = "sine-wave-container";
-  // sineWaveContainer.appendChild(printSineWave());
+  container.appendChild(document.createElement("hr"));
 
+  container.appendChild(printProjects());
+
+  return container;
+}
+
+function printAbout() {
   const aboutContainer = document.createElement("div");
   aboutContainer.classList.add("about-container");
 
@@ -111,12 +109,12 @@ function printMain() {
   lastName.textContent = "FIGUEIREDO";
   lastName.classList.add("last-name");
   // const description = document.createElement("h2");
-  const description = document.createElement("div");
-  description.classList.add("description");
-  description.textContent = "WEB DEVELOPER";
+  const developer = document.createElement("div");
+  developer.classList.add("developer");
+  developer.textContent = "WEB DEVELOPER";
   title.appendChild(firstName);
   title.appendChild(lastName);
-  title.appendChild(description);
+  title.appendChild(developer);
 
   const myPicture = new Image();
   myPicture.src = me;
@@ -128,20 +126,95 @@ function printMain() {
 
   const aboutMeContainer = document.createElement("div");
   aboutMeContainer.classList.add("about-me-container");
-  const aboutMeTitle = document.createElement("h3");
+  const aboutMeTitle = document.createElement("h2");
   aboutMeTitle.textContent = "About me";
   const aboutMeText = document.createElement("p");
   aboutMeText.textContent =
-    "I am a 34 year old brazilian developer, blabl ablabla blabla blabalblabl ablabl ablaba lalablabla blabalbla blablab lablabla blabalblabl ablab lablaba lalablaba lablablabl ablabl abalablabla balbala blab lablab lablabla blabalbl ablablabl ablaba lala";
+    "I am a 34 year old brazilian developer, currently learning on The Odin Project's Full Stack JavaScript path. I have a bachelors degree in Mechanical Engineering and until a few months ago I was the owner of a small artisan bakery. By the end of 2022 I decided that it was time for a carreer transition and started to teach myself how to code.";
   aboutMeContainer.appendChild(aboutMeTitle);
   aboutMeContainer.appendChild(aboutMeText);
 
-  // aboutContainer.appendChild(title);
-  // aboutContainer.appendChild(myPicture);
   aboutContainer.appendChild(wrapper);
   aboutContainer.appendChild(aboutMeContainer);
 
-  container.appendChild(aboutContainer);
+  return aboutContainer;
+}
+
+import battleship from "./img/battleship.jpg";
+
+function printProjects() {
+  const container = document.createElement("div");
+  container.classList.add("projects-container");
+
+  const title = document.createElement("h2");
+  title.textContent = "Projects";
+
+  const description = document.createElement("p");
+  description.classList.add("projects-description");
+  description.textContent =
+    "Here are some projects that I developed during my code learning journey:";
+
+  //battleship
+  const bsContainer = document.createElement("div");
+  bsContainer.classList.add("project");
+  const bsa1 = document.createElement("a");
+  bsa1.href = "https://felipelf00.github.io/battleship/dist/";
+  bsa1.target = "_blank";
+  const bsTitle = document.createElement("h3");
+  bsTitle.classList.add("project-title");
+  bsTitle.textContent = "Battleship";
+  bsa1.appendChild(bsTitle);
+
+  const bsWrapper = document.createElement("div");
+  bsWrapper.classList.add("project-wrapper");
+
+  const bsImage = new Image();
+  bsImage.classList.add("screenshot");
+  bsImage.src = battleship;
+  bsImage.alt = "screenshot of battleship game";
+
+  const bsDescription = document.createElement("div");
+  bsDescription.classList.add("description");
+  bsDescription.innerHTML =
+    "The classic game Battleship to be played against the (somewhat intelligent) computer.<br>This project was developed as part of a lesson on Unit Testing and Test Driven Development.";
+  const bsTech = document.createElement("div");
+  bsTech.classList.add("tech");
+  bsTech.innerHTML =
+    "<b>Developed using: </b> JavaScript, CSS, HTML, Webpack, Jest.";
+
+  bsDescription.appendChild(bsTech);
+
+  const bsButtons = document.createElement("div");
+  bsButtons.classList.add("button-container");
+  const bsLive = document.createElement("a");
+  bsLive.href = "https://felipelf00.github.io/battleship/dist/";
+  bsLive.target = "_blank";
+  bsLive.classList.add("live");
+  bsLive.classList.add("button");
+  bsLive.textContent = "View page";
+  const bsCode = document.createElement("a");
+  bsCode.href = "https://github.com/felipelf00/battleship";
+  bsCode.target = "_blank";
+  bsCode.classList.add("code");
+  bsCode.classList.add("button");
+  bsCode.textContent = "View code";
+  bsButtons.appendChild(bsLive);
+  bsButtons.appendChild(bsCode);
+
+  bsDescription.appendChild(bsButtons);
+
+  bsWrapper.appendChild(bsImage);
+  bsWrapper.appendChild(bsDescription);
+
+  bsContainer.appendChild(bsa1);
+  bsContainer.appendChild(bsWrapper);
+
+  //weather
+
+  // container.appendChild(title);
+  container.appendChild(description);
+  container.appendChild(bsContainer);
+
   return container;
 }
 
