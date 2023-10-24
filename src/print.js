@@ -141,6 +141,9 @@ function printAbout() {
 }
 
 import battleship from "./img/battleship.jpg";
+import weather from "./img/weather.jpg";
+import todo from "./img/todo.jpg";
+import panis from "./img/panis.jpg";
 
 function printProjects() {
   const container = document.createElement("div");
@@ -157,13 +160,13 @@ function printProjects() {
   //battleship
   const bsContainer = document.createElement("div");
   bsContainer.classList.add("project");
-  const bsa1 = document.createElement("a");
-  bsa1.href = "https://felipelf00.github.io/battleship/dist/";
-  bsa1.target = "_blank";
+  const bsTitleLink = document.createElement("a");
+  bsTitleLink.href = "https://felipelf00.github.io/battleship/dist/";
+  bsTitleLink.target = "_blank";
   const bsTitle = document.createElement("h3");
   bsTitle.classList.add("project-title");
   bsTitle.textContent = "Battleship";
-  bsa1.appendChild(bsTitle);
+  bsTitleLink.appendChild(bsTitle);
 
   const bsWrapper = document.createElement("div");
   bsWrapper.classList.add("project-wrapper");
@@ -206,14 +209,179 @@ function printProjects() {
   bsWrapper.appendChild(bsImage);
   bsWrapper.appendChild(bsDescription);
 
-  bsContainer.appendChild(bsa1);
+  bsContainer.appendChild(bsTitleLink);
   bsContainer.appendChild(bsWrapper);
 
   //weather
+  const wContainer = document.createElement("div");
+  wContainer.classList.add("project");
+  const wTitleLink = document.createElement("a");
+  wTitleLink.href = "https://felipelf00.github.io/weather/dist/";
+  wTitleLink.target = "_blank";
+  const wTitle = document.createElement("h3");
+  wTitle.classList.add("project-title");
+  wTitle.textContent = "Weather app";
+  wTitleLink.appendChild(wTitle);
+
+  const wWrapper = document.createElement("div");
+  wWrapper.classList.add("project-wrapper");
+
+  const wImage = new Image();
+  wImage.classList.add("screenshot");
+  wImage.src = weather;
+  wImage.alt = "screenshot of my weather app";
+
+  const wDescription = document.createElement("div");
+  wDescription.classList.add("description");
+  wDescription.innerHTML =
+    "Minimalist weather forecast app that uses Weather API. The intention behind this project was to learn how to use REST APIs and asyncronous code, but I actually use this site in real life.";
+  const wTech = document.createElement("div");
+  wTech.classList.add("tech");
+  wTech.innerHTML =
+    "<b>Developed using: </b> JavaScript, CSS, HTML, Webpack, Weather API.";
+
+  wDescription.appendChild(wTech);
+
+  const wButtons = document.createElement("div");
+  wButtons.classList.add("button-container");
+  const wLive = document.createElement("a");
+  wLive.href = "https://felipelf00.github.io/weather/dist/";
+  wLive.target = "_blank";
+  wLive.classList.add("live");
+  wLive.classList.add("button");
+  wLive.textContent = "View page";
+  const wCode = document.createElement("a");
+  wCode.href = "https://github.com/felipelf00/weather";
+  wCode.target = "_blank";
+  wCode.classList.add("code");
+  wCode.classList.add("button");
+  wCode.textContent = "View code";
+  wButtons.appendChild(wLive);
+  wButtons.appendChild(wCode);
+
+  wDescription.appendChild(wButtons);
+
+  wWrapper.appendChild(wImage);
+  wWrapper.appendChild(wDescription);
+
+  wContainer.appendChild(wTitleLink);
+  wContainer.appendChild(wWrapper);
+
+  //todo
+  const todoContainer = document.createElement("div");
+  todoContainer.classList.add("project");
+  const todoTitleLink = document.createElement("a");
+  todoTitleLink.href = "https://felipelf00.github.io/todo/dist/";
+  todoTitleLink.target = "_blank";
+  const todoTitle = document.createElement("h3");
+  todoTitle.classList.add("project-title");
+  todoTitle.textContent = "To-do list";
+  todoTitleLink.appendChild(todoTitle);
+
+  const todoWrapper = document.createElement("div");
+  todoWrapper.classList.add("project-wrapper");
+
+  const todoImage = new Image();
+  todoImage.classList.add("screenshot");
+  todoImage.src = todo;
+  todoImage.alt = "screenshot of to-do list app";
+
+  const todoDescription = document.createElement("div");
+  todoDescription.classList.add("description");
+  todoDescription.innerHTML =
+    "Simple to-do list website. The main target on this project was to apply Object Oriented Programming (OOP) principles in a practical application. Uses local storage.";
+  const todoTech = document.createElement("div");
+  todoTech.classList.add("tech");
+  todoTech.innerHTML =
+    "<b>Developed using: </b> JavaScript, CSS, HTML, Webpack.";
+
+  todoDescription.appendChild(todoTech);
+
+  const todoButtons = document.createElement("div");
+  todoButtons.classList.add("button-container");
+  const todoLive = document.createElement("a");
+  todoLive.href = "https://felipelf00.github.io/todo/dist/";
+  todoLive.target = "_blank";
+  todoLive.classList.add("live");
+  todoLive.classList.add("button");
+  todoLive.textContent = "View page";
+  const todoCode = document.createElement("a");
+  todoCode.href = "https://github.com/felipelf00/todo";
+  todoCode.target = "_blank";
+  todoCode.classList.add("code");
+  todoCode.classList.add("button");
+  todoCode.textContent = "View code";
+  todoButtons.appendChild(todoLive);
+  todoButtons.appendChild(todoCode);
+
+  todoDescription.appendChild(todoButtons);
+
+  todoWrapper.appendChild(todoImage);
+  todoWrapper.appendChild(todoDescription);
+
+  todoContainer.appendChild(todoTitleLink);
+  todoContainer.appendChild(todoWrapper);
+
+  //panis
+  const panisContainer = document.createElement("div");
+  panisContainer.classList.add("project");
+  const panisTitleLink = document.createElement("a");
+  panisTitleLink.href = "https://felipelf00.github.io/panis/dist/";
+  panisTitleLink.target = "_blank";
+  const panisTitle = document.createElement("h3");
+  panisTitle.classList.add("project-title");
+  panisTitle.textContent = "Panis Padaria Artesanal (artisan bakery webpage)";
+  panisTitleLink.appendChild(panisTitle);
+
+  const panisWrapper = document.createElement("div");
+  panisWrapper.classList.add("project-wrapper");
+
+  const panisImage = new Image();
+  panisImage.classList.add("screenshot");
+  panisImage.src = panis;
+  panisImage.alt = "screenshot of artisan bakery webpage";
+
+  const panisDescription = document.createElement("div");
+  panisDescription.classList.add("description");
+  panisDescription.innerHTML = "Webpage for the artisan bakery I used to own.";
+  const panisTech = document.createElement("div");
+  panisTech.classList.add("tech");
+  panisTech.innerHTML =
+    "<b>Developed using: </b> JavaScript, CSS, HTML, Webpack.";
+
+  panisDescription.appendChild(panisTech);
+
+  const panisButtons = document.createElement("div");
+  panisButtons.classList.add("button-container");
+  const panisLive = document.createElement("a");
+  panisLive.href = "https://felipelf00.github.io/panis/dist/";
+  panisLive.target = "_blank";
+  panisLive.classList.add("live");
+  panisLive.classList.add("button");
+  panisLive.textContent = "View page";
+  const panisCode = document.createElement("a");
+  panisCode.href = "https://github.com/felipelf00/panis";
+  panisCode.target = "_blank";
+  panisCode.classList.add("code");
+  panisCode.classList.add("button");
+  panisCode.textContent = "View code";
+  panisButtons.appendChild(panisLive);
+  panisButtons.appendChild(panisCode);
+
+  panisDescription.appendChild(panisButtons);
+
+  panisWrapper.appendChild(panisImage);
+  panisWrapper.appendChild(panisDescription);
+
+  panisContainer.appendChild(panisTitleLink);
+  panisContainer.appendChild(panisWrapper);
 
   // container.appendChild(title);
   container.appendChild(description);
   container.appendChild(bsContainer);
+  container.appendChild(wContainer);
+  container.appendChild(todoContainer);
+  container.appendChild(panisContainer);
 
   return container;
 }

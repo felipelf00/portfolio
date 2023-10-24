@@ -6,7 +6,8 @@
   --text-color: #1a1c1a;
   --detail-color: #e2919f;
   --detail-color2: #b86b78;
-  --background-color2: rgb(247, 242, 244);
+  /* --background-color2: rgb(247, 242, 244); */
+  --background-color2: rgb(235, 224, 228);
 }
 
 .material-symbols-outlined {
@@ -42,16 +43,18 @@ body {
   width: 100%;
   height: 100%;
   /* display: none; */
-  visibility: hidden;
+  /* visibility: hidden; */
   z-index: 1;
   opacity: 0;
   transition: opacity 300ms ease-in-out;
+  pointer-events: none;
 }
 
 .shadow.active {
-  display: block;
+  /* display: block; */
   opacity: 0.4;
-  visibility: visible;
+  /* visibility: visible; */
+  pointer-events: all;
 }
 
 header {
@@ -207,6 +210,10 @@ h3 {
   text-decoration: underline 3px solid var(--detail-color);
 }
 
+.project-title {
+  margin-top: 90px;
+}
+
 .portrait {
   /* max-width: min(69vw, 420px); */
   max-width: min(69vw, 350px);
@@ -232,8 +239,8 @@ hr {
 }
 
 .projects-description {
-  margin-bottom: 60px;
-  margin-top: 60px;
+  margin-bottom: 90px;
+  margin-top: 90px;
   font-size: 1.3rem;
 }
 
@@ -242,9 +249,14 @@ hr {
 }
 
 .about-me-container {
-  margin-top: 75px;
-  margin-bottom: 100px;
+  margin: 75px auto 100px auto;
+  /* margin-top: 75px;
+  margin-bottom: 100px; */
   max-width: 90vw;
+}
+
+.about-me-container p {
+  text-align: left;
 }
 
 .project-wrapper {
@@ -265,6 +277,7 @@ hr {
 
 .description {
   max-width: 90vw;
+  width: 100%;
 }
 
 .tech {
