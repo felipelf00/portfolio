@@ -1,5 +1,8 @@
 import me from "./img/eu-crop.jpeg";
-// import sine2 from "./img/sine2.svg";
+import battleship from "./img/battleship.jpg";
+import weather from "./img/weather.jpg";
+import todo from "./img/todo.jpg";
+import panis from "./img/panis.jpg";
 
 function printPage() {
   const shadow = document.createElement("div");
@@ -139,11 +142,6 @@ function printAbout() {
 
   return aboutContainer;
 }
-
-import battleship from "./img/battleship.jpg";
-import weather from "./img/weather.jpg";
-import todo from "./img/todo.jpg";
-import panis from "./img/panis.jpg";
 
 function printProjects() {
   const container = document.createElement("div");
@@ -330,7 +328,7 @@ function printProjects() {
   panisTitleLink.target = "_blank";
   const panisTitle = document.createElement("h3");
   panisTitle.classList.add("project-title");
-  panisTitle.textContent = "Panis Padaria Artesanal (artisan bakery webpage)";
+  panisTitle.textContent = "Panis Padaria Artesanal";
   panisTitleLink.appendChild(panisTitle);
 
   const panisWrapper = document.createElement("div");
@@ -388,6 +386,50 @@ function printProjects() {
 
 function printFooter() {
   const container = document.createElement("footer");
+
+  const contact = document.createElement("h2");
+  contact.textContent = "Contact me!";
+
+  const formContainer = document.createElement("div");
+  formContainer.classList.add("form-container");
+  const form = document.createElement("form");
+  form.classList.add("contact-form");
+  form.action = "https://formsubmit.co/f482dcda8ff4d9dbda15030d72670cda";
+  form.method = "POST";
+  const email = document.createElement("input");
+  email.classList.add("email-input");
+  email.type = "email";
+  email.id = "email";
+  email.name = "email";
+  email.placeholder = "dwight.schrute@dundermifflin.com";
+  email.required = true;
+  const emailLabel = document.createElement("label");
+  emailLabel.for = "email";
+  emailLabel.textContent = "Your email address: ";
+  const message = document.createElement("textarea");
+  message.classList.add("message-input");
+  // message.type = "textarea";
+  message.rows = "5";
+  message.id = "message";
+  message.name = "message";
+  message.required = true;
+  const messageLabel = document.createElement("label");
+  messageLabel.for = "message";
+  messageLabel.textContent = "Message: ";
+  const submit = document.createElement("button");
+  submit.type = "submit";
+  submit.textContent = "Submit";
+
+  formContainer.appendChild(contact);
+  formContainer.appendChild(form);
+  formContainer.appendChild(emailLabel);
+  formContainer.appendChild(email);
+  formContainer.appendChild(messageLabel);
+  formContainer.appendChild(message);
+  formContainer.appendChild(submit);
+
+  container.appendChild(formContainer);
+
   return container;
 }
 
