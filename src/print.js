@@ -42,7 +42,7 @@ function printHeader() {
   const resume = document.createElement("li");
   const resumeLink = document.createElement("a");
   resumeLink.textContent = "Resume";
-  resumeLink.href = "#";
+  resumeLink.href = "../src/CV.pdf";
   resumeLink.target = "_blank";
   resume.appendChild(resumeLink);
   const contact = document.createElement("li");
@@ -389,6 +389,7 @@ function printFooter() {
 
   const contact = document.createElement("h2");
   contact.textContent = "Contact me!";
+  contact.id = "contact";
 
   const formContainer = document.createElement("div");
   formContainer.classList.add("form-container");
@@ -396,39 +397,54 @@ function printFooter() {
   form.classList.add("contact-form");
   form.action = "https://formsubmit.co/f482dcda8ff4d9dbda15030d72670cda";
   form.method = "POST";
+  const name = document.createElement("input");
+  name.type = "text";
+  name.id = "name";
+  name.name = "name";
+  name.placeholder = "Name";
   const email = document.createElement("input");
-  email.classList.add("email-input");
+  // email.classList.add("email-input");
   email.type = "email";
   email.id = "email";
   email.name = "email";
-  email.placeholder = "dwight.schrute@dundermifflin.com";
+  email.placeholder = "Email";
   email.required = true;
-  const emailLabel = document.createElement("label");
-  emailLabel.for = "email";
-  emailLabel.textContent = "Your email address: ";
+  // const emailLabel = document.createElement("label");
+  // emailLabel.for = "email";
+  // emailLabel.textContent = "Your email address: ";
   const message = document.createElement("textarea");
-  message.classList.add("message-input");
+  // message.classList.add("message-input");
   // message.type = "textarea";
   message.rows = "5";
   message.id = "message";
   message.name = "message";
   message.required = true;
-  const messageLabel = document.createElement("label");
-  messageLabel.for = "message";
-  messageLabel.textContent = "Message: ";
+  message.placeholder = "Message";
+  // const messageLabel = document.createElement("label");
+  // messageLabel.for = "message";
+  // messageLabel.textContent = "Message: ";
   const submit = document.createElement("button");
   submit.type = "submit";
   submit.textContent = "Submit";
+  submit.classList.add("button");
+
+  form.appendChild(name);
+  // form.appendChild(emailLabel);
+  form.appendChild(email);
+  // form.appendChild(messageLabel);
+  form.appendChild(message);
+  form.appendChild(submit);
 
   formContainer.appendChild(contact);
   formContainer.appendChild(form);
-  formContainer.appendChild(emailLabel);
-  formContainer.appendChild(email);
-  formContainer.appendChild(messageLabel);
-  formContainer.appendChild(message);
-  formContainer.appendChild(submit);
+
+  const copyright = document.createElement("div");
+  copyright.classList.add("copyright");
+  copyright.textContent =
+    "© 2023 Felipe Lindner de Figueiredo. All Rights Reserved.";
 
   container.appendChild(formContainer);
+  container.appendChild(copyright);
 
   return container;
 }
