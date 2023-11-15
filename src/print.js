@@ -3,6 +3,7 @@ import battleship from "./img/battleship.jpg";
 import weather from "./img/weather.jpg";
 import todo from "./img/todo.jpg";
 import panis from "./img/panis.jpg";
+import memory from "./img/memory.jpg";
 
 function printPage() {
   const shadow = document.createElement("div");
@@ -154,6 +155,61 @@ function printProjects() {
   description.classList.add("projects-description");
   description.textContent =
     "Here are some projects that I developed during my code learning journey:";
+
+  //cat game
+  const catContainer = document.createElement("div");
+  catContainer.classList.add("project");
+  const catTitleLink = document.createElement("a");
+  catTitleLink.href = "https://cat-memory-game1.netlify.app/";
+  catTitleLink.target = "_blank";
+  const catTitle = document.createElement("h3");
+  catTitle.classList.add("project-title");
+  catTitle.textContent = "Cat memory game";
+  catTitleLink.appendChild(catTitle);
+
+  const catWrapper = document.createElement("div");
+  catWrapper.classList.add("project-wrapper");
+
+  const catImage = new Image();
+  catImage.classList.add("screenshot");
+  catImage.src = memory;
+  catImage.alt = "screenshot of cat memory game";
+
+  const catDescription = document.createElement("div");
+  catDescription.classList.add("description");
+  catDescription.innerHTML =
+    "A memory game played with cat gifs.<br>With this one the target was to learn how to structure a React project and to use the useState and useEffect hooks. The game fetches random cat gifs from Giphy's API.";
+  const catTech = document.createElement("div");
+  catTech.classList.add("tech");
+  catTech.innerHTML =
+    "<b>Developed using: </b> React (with Vite), Giphy API, JavaScript, CSS, HTML";
+
+  catDescription.appendChild(catTech);
+
+  const catButtons = document.createElement("div");
+  catButtons.classList.add("button-container");
+  const catLive = document.createElement("a");
+  catLive.href = "https://cat-memory-game1.netlify.app/";
+  catLive.target = "_blank";
+  catLive.classList.add("live");
+  catLive.classList.add("button");
+  catLive.textContent = "View page";
+  const catCode = document.createElement("a");
+  catCode.href = "https://github.com/felipelf00/memory-game";
+  catCode.target = "_blank";
+  catCode.classList.add("code");
+  catCode.classList.add("button");
+  catCode.textContent = "View code";
+  catButtons.appendChild(catLive);
+  catButtons.appendChild(catCode);
+
+  catDescription.appendChild(catButtons);
+
+  catWrapper.appendChild(catImage);
+  catWrapper.appendChild(catDescription);
+
+  catContainer.appendChild(catTitleLink);
+  catContainer.appendChild(catWrapper);
 
   //battleship
   const bsContainer = document.createElement("div");
@@ -376,6 +432,7 @@ function printProjects() {
 
   // container.appendChild(title);
   container.appendChild(description);
+  container.appendChild(catContainer);
   container.appendChild(bsContainer);
   container.appendChild(wContainer);
   container.appendChild(todoContainer);

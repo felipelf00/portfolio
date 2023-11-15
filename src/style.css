@@ -351,6 +351,7 @@ button {
   .project-wrapper {
     flex-direction: row-reverse;
   }
+
   .copyright {
     font-size: 0.85rem;
   }
