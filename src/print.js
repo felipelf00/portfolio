@@ -4,6 +4,7 @@ import weather from "./img/weather.jpg";
 import todo from "./img/todo.jpg";
 import panis from "./img/panis.jpg";
 import memory from "./img/memory.jpg";
+import shop from "./img/shop.jpg";
 
 function printPage() {
   const shadow = document.createElement("div");
@@ -155,6 +156,61 @@ function printProjects() {
   description.classList.add("projects-description");
   description.textContent =
     "Here are some projects that I developed during my code learning journey:";
+
+  // shop game
+  const shopContainer = document.createElement("div");
+  shopContainer.classList.add("project");
+  const shopTitleLink = document.createElement("a");
+  shopTitleLink.href = "https://felipes-fake-store.netlify.app/";
+  shopTitleLink.target = "_blank";
+  const shopTitle = document.createElement("h3");
+  shopTitle.classList.add("project-title");
+  shopTitle.textContent = "Store webpage";
+  shopTitleLink.appendChild(shopTitle);
+
+  const shopWrapper = document.createElement("div");
+  shopWrapper.classList.add("project-wrapper");
+
+  const shopImage = new Image();
+  shopImage.classList.add("screenshot");
+  shopImage.src = shop;
+  shopImage.alt = "screenshot of shop webpage";
+
+  const shopDescription = document.createElement("div");
+  shopDescription.classList.add("description");
+  shopDescription.innerHTML =
+    "Webpage for a clothing store with shopping cart functionality.<br>The objective of this project was to understand how to use React to handle routing, data fetching, state managing with the Context API, and prop type validation.";
+  const shopTech = document.createElement("div");
+  shopTech.classList.add("tech");
+  shopTech.innerHTML =
+    "<b>Developed using: </b> React, Fake Store API, JavaScript, CSS, HTML";
+
+  shopDescription.appendChild(shopTech);
+
+  const shopButtons = document.createElement("div");
+  shopButtons.classList.add("button-container");
+  const shopLive = document.createElement("a");
+  shopLive.href = "https://felipes-fake-store.netlify.app/";
+  shopLive.target = "_blank";
+  shopLive.classList.add("live");
+  shopLive.classList.add("button");
+  shopLive.textContent = "View page";
+  const shopCode = document.createElement("a");
+  shopCode.href = "https://github.com/felipelf00/shopping-cart";
+  shopCode.target = "_blank";
+  shopCode.classList.add("code");
+  shopCode.classList.add("button");
+  shopCode.textContent = "View code";
+  shopButtons.appendChild(shopLive);
+  shopButtons.appendChild(shopCode);
+
+  shopDescription.appendChild(shopButtons);
+
+  shopWrapper.appendChild(shopImage);
+  shopWrapper.appendChild(shopDescription);
+
+  shopContainer.appendChild(shopTitleLink);
+  shopContainer.appendChild(shopWrapper);
 
   //cat game
   const catContainer = document.createElement("div");
@@ -431,7 +487,9 @@ function printProjects() {
   panisContainer.appendChild(panisWrapper);
 
   // container.appendChild(title);
+
   container.appendChild(description);
+  container.appendChild(shopContainer);
   container.appendChild(catContainer);
   container.appendChild(bsContainer);
   container.appendChild(wContainer);
