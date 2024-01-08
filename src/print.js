@@ -41,12 +41,29 @@ function printHeader() {
   linkedInLink.href = "https://www.linkedin.com/in/felipelf00/";
   linkedInLink.target = "_blank";
   linkedIn.appendChild(linkedInLink);
+
   const resume = document.createElement("li");
-  const resumeLink = document.createElement("a");
-  resumeLink.textContent = "Resume";
-  resumeLink.href = "../src/CV.pdf";
-  resumeLink.target = "_blank";
-  resume.appendChild(resumeLink);
+  // resume.textContent = "Resume";
+  resume.classList.add("resume");
+  const resumeDrop = document.createElement("div");
+  resumeDrop.textContent = "Resume";
+
+  const portugueseLink = document.createElement("a");
+  portugueseLink.classList.add("pt");
+  portugueseLink.textContent = "Português";
+  portugueseLink.href = "../src/CV.pdf";
+  portugueseLink.target = "_blank";
+
+  const englishLink = document.createElement("a");
+  englishLink.classList.add("en");
+  englishLink.textContent = "English";
+  englishLink.href = "../src/CV_en.pdf";
+  englishLink.target = "_blank";
+
+  resume.appendChild(resumeDrop);
+  resume.appendChild(portugueseLink);
+  resume.appendChild(englishLink);
+
   const contact = document.createElement("li");
   const contactLink = document.createElement("a");
   contactLink.textContent = "Contact";
@@ -157,7 +174,7 @@ function printProjects() {
   description.textContent =
     "Here are some projects that I developed during my code learning journey:";
 
-  // shop game
+  // shop
   const shopContainer = document.createElement("div");
   shopContainer.classList.add("project");
   const shopTitleLink = document.createElement("a");

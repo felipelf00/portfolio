@@ -2,12 +2,14 @@
 
 :root {
   --background-color: rgb(253, 252, 251);
-  --text-color: rgb(15, 15, 15);
+  /* --text-color: rgb(15, 15, 15); */
   --text-color: #1a1c1a;
+  --text-color2: rgb(99, 102, 99);
   --detail-color: #e2919f;
   --detail-color2: #b86b78;
   /* --background-color2: rgb(247, 242, 244); */
   --background-color2: rgb(235, 224, 228);
+  --background-color3: rgb(238, 235, 236);
 }
 
 .material-symbols-outlined {
@@ -72,7 +74,7 @@ ul {
 nav {
   position: absolute;
   z-index: 2;
-  top: -400%;
+  top: -450%;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--background-color);
@@ -113,6 +115,34 @@ nav ul a {
 nav ul a:where(:hover, :focus-visible) {
   background-size: 100% var(--bg-h);
   background-position-x: left;
+}
+
+.resume {
+  display: grid;
+  grid-template-rows: auto 1fr 1fr;
+  overflow: hidden;
+}
+
+/* .resume:hover {
+  grid-template-rows: auto 1fr 1fr;
+} */
+
+.resume div {
+  grid-row: 1;
+  color: var(--text-color2);
+}
+
+.pt,
+.en {
+  background-color: var(--background-color3);
+}
+
+.pt {
+  grid-row: 2;
+}
+
+.en {
+  grid-row: 3;
 }
 
 .burger {
@@ -338,6 +368,26 @@ button {
 
   .wrapper {
     flex-direction: row-reverse;
+  }
+
+  .resume {
+    display: grid;
+    grid-template-rows: auto 0 0;
+    overflow: hidden;
+  }
+
+  .resume:hover {
+    grid-template-rows: auto 1fr 1fr;
+  }
+
+  .resume div {
+    color: var(--text-color);
+  }
+
+  .pt,
+  .en {
+    font-size: 0.9rem;
+    background-color: var(--background-color);
   }
 
   .burger {
