@@ -74,7 +74,7 @@ ul {
 nav {
   position: absolute;
   z-index: 2;
-  top: -450%;
+  top: -690%;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--background-color);
@@ -122,10 +122,6 @@ nav ul a:where(:hover, :focus-visible) {
   grid-template-rows: auto 1fr 1fr;
   overflow: hidden;
 }
-
-/* .resume:hover {
-  grid-template-rows: auto 1fr 1fr;
-} */
 
 .resume div {
   grid-row: 1;
