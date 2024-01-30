@@ -5,6 +5,7 @@ import todo from "./img/todo.jpg";
 import panis from "./img/panis.jpg";
 import memory from "./img/memory.jpg";
 import shop from "./img/shop.jpg";
+import tsf from "./img/tsf.jpg";
 
 function printPage() {
   const shadow = document.createElement("div");
@@ -152,7 +153,7 @@ function printAbout() {
   aboutMeTitle.textContent = "About me";
   const aboutMeText = document.createElement("p");
   aboutMeText.textContent =
-    "I am a 34 year old brazilian developer, currently learning on The Odin Project's Full Stack JavaScript path. I have a bachelors degree in Mechanical Engineering and until a few months ago I was the owner of a small artisan bakery. By the end of 2022 I decided that it was time for a carreer transition and started to teach myself how to code.";
+    "I am a 34 year old brazilian looking for opportunities to work as a Web Developer. I am currently studying Systems Analysis and Development (Análise e Desenvolvimento de Sistemas) and I have a degree in Mechanical Engineering. Until a few months ago I was the owner of a small artisan bakery, but I decided it was time for a career transition and started to learn how to code with the help of a course offered by The Odin Project.";
   aboutMeContainer.appendChild(aboutMeTitle);
   aboutMeContainer.appendChild(aboutMeText);
 
@@ -173,6 +174,61 @@ function printProjects() {
   description.classList.add("projects-description");
   description.textContent =
     "Here are some projects that I developed during my code learning journey:";
+
+  // Tênis Sem Fronteiras
+  const tsfContainer = document.createElement("div");
+  tsfContainer.classList.add("project");
+  const tsfTitleLink = document.createElement("a");
+  tsfTitleLink.href = "https://tenissemfronteiras.netlify.app/";
+  tsfTitleLink.target = "_blank";
+  const tsfTitle = document.createElement("h3");
+  tsfTitle.classList.add("project-title");
+  tsfTitle.textContent = "Tênis Sem Fronteiras (volunteering project)";
+  tsfTitleLink.appendChild(tsfTitle);
+
+  const tsfWrapper = document.createElement("div");
+  tsfWrapper.classList.add("project-wrapper");
+
+  const tsfImage = new Image();
+  tsfImage.classList.add("screenshot");
+  tsfImage.src = tsf;
+  tsfImage.alt = "screenshot of tsf webpage";
+
+  const tsfDescription = document.createElement("div");
+  tsfDescription.classList.add("description");
+  tsfDescription.innerHTML =
+    "Webpage for a volunteering project that provides free tennis classes for children of low income families.<br>On this project I took the opportunity to start learning TypeScript and Tailwind CSS.";
+  const tsfTech = document.createElement("div");
+  tsfTech.classList.add("tech");
+  tsfTech.innerHTML =
+    "<b>Developed using: </b> React, TypeScript, Tailwind CSS, HTML";
+
+  tsfDescription.appendChild(tsfTech);
+
+  const tsfButtons = document.createElement("div");
+  tsfButtons.classList.add("button-container");
+  const tsfLive = document.createElement("a");
+  tsfLive.href = "https://tenissemfronteiras.netlify.app/";
+  tsfLive.target = "_blank";
+  tsfLive.classList.add("live");
+  tsfLive.classList.add("button");
+  tsfLive.textContent = "View page";
+  const tsfCode = document.createElement("a");
+  tsfCode.href = "https://github.com/felipelf00/tenis-sem-fronteiras";
+  tsfCode.target = "_blank";
+  tsfCode.classList.add("code");
+  tsfCode.classList.add("button");
+  tsfCode.textContent = "View code";
+  tsfButtons.appendChild(tsfLive);
+  tsfButtons.appendChild(tsfCode);
+
+  tsfDescription.appendChild(tsfButtons);
+
+  tsfWrapper.appendChild(tsfImage);
+  tsfWrapper.appendChild(tsfDescription);
+
+  tsfContainer.appendChild(tsfTitleLink);
+  tsfContainer.appendChild(tsfWrapper);
 
   // shop
   const shopContainer = document.createElement("div");
@@ -506,6 +562,7 @@ function printProjects() {
   // container.appendChild(title);
 
   container.appendChild(description);
+  container.appendChild(tsfContainer);
   container.appendChild(shopContainer);
   container.appendChild(catContainer);
   container.appendChild(bsContainer);
