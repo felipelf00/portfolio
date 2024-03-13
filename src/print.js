@@ -6,6 +6,7 @@ import panis from "./img/panis.jpg";
 import memory from "./img/memory.jpg";
 import shop from "./img/shop.jpg";
 import tsf from "./img/tsf.jpg";
+import pet from "./img/pet.jpg";
 
 function printPage() {
   const shadow = document.createElement("div");
@@ -174,6 +175,63 @@ function printProjects() {
   description.classList.add("projects-description");
   description.textContent =
     "Here are some projects that I developed during my code learning journey:";
+
+  // Pet CRUD
+  const petContainer = document.createElement("div");
+  petContainer.classList.add("project");
+  const petTitleLink = document.createElement("a");
+  petTitleLink.href =
+    "https://spectrum-chiseled-laborer.glitch.me/registry/pet/create";
+  petTitleLink.target = "_blank";
+  const petTitle = document.createElement("h3");
+  petTitle.classList.add("project-title");
+  petTitle.textContent = "Cadastro Pet (backend CRUD project)";
+  petTitleLink.appendChild(petTitle);
+
+  const petWrapper = document.createElement("div");
+  petWrapper.classList.add("project-wrapper");
+
+  const petImage = new Image();
+  petImage.classList.add("screenshot");
+  petImage.src = pet;
+  petImage.alt = "screenshot of pet webpage";
+
+  const petDescription = document.createElement("div");
+  petDescription.classList.add("description");
+  petDescription.innerHTML =
+    "Simple CRUD project for pets and tutors.<br>The target for this project was to learn how to set up and implement a backend application and integrating it with a database.";
+  const petTech = document.createElement("div");
+  petTech.classList.add("tech");
+  petTech.innerHTML =
+    "<b>Developed using: </b> Node.js, Express.js, MongoDB (via mongoose), Pug";
+
+  petDescription.appendChild(petTech);
+
+  const petButtons = document.createElement("div");
+  petButtons.classList.add("button-container");
+  const petLive = document.createElement("a");
+  petLive.href =
+    "https://spectrum-chiseled-laborer.glitch.me/registry/pet/create";
+  petLive.target = "_blank";
+  petLive.classList.add("live");
+  petLive.classList.add("button");
+  petLive.textContent = "View page";
+  const petCode = document.createElement("a");
+  petCode.href = "https://github.com/felipelf00/pets";
+  petCode.target = "_blank";
+  petCode.classList.add("code");
+  petCode.classList.add("button");
+  petCode.textContent = "View code";
+  petButtons.appendChild(petLive);
+  petButtons.appendChild(petCode);
+
+  petDescription.appendChild(petButtons);
+
+  petWrapper.appendChild(petImage);
+  petWrapper.appendChild(petDescription);
+
+  petContainer.appendChild(petTitleLink);
+  petContainer.appendChild(petWrapper);
 
   // Tênis Sem Fronteiras
   const tsfContainer = document.createElement("div");
@@ -562,6 +620,7 @@ function printProjects() {
   // container.appendChild(title);
 
   container.appendChild(description);
+  container.appendChild(petContainer);
   container.appendChild(tsfContainer);
   container.appendChild(shopContainer);
   container.appendChild(catContainer);
